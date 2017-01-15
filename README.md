@@ -2,4 +2,4 @@
 
 ![img](https://github.com/keepworking/JavaBackgroundBlurFilter/raw/master/target.jpg)
 
-![img](https://github.com/keepworking/java-Image-Blur/raw/master/out.png)
+![img](https://github.com/keepworking/JavaBackgroundBlurFilter/raw/master/out.png)
