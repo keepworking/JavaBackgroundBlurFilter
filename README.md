@@ -1,5 +1,5 @@
 # JavaBackgroundBlurFilter
 
-![img](https://github.com/keepworking/JavaBackgroundBlurFilter/raw/master/target.jpg)
+![img](https://github.com/keepworking/JavaBackgroundBlurFilter/raw/master/a.png)
 
-![img](https://github.com/keepworking/JavaBackgroundBlurFilter/raw/master/out.png)
+![img](https://github.com/keepworking/JavaBackgroundBlurFilter/raw/master/b.png)
