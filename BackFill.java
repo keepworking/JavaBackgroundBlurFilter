@@ -30,7 +30,7 @@ public class BackFill {
 
 		Graphics2D graphics = (Graphics2D) bgImg.getGraphics();
 
-		// È­¸é Ã¤¿ì±â ½ÃÀÛ
+		// í™”ë©´ ì±„ìš°ê¸° ì‹œì‘
 		
 		graphics.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
                 RenderingHints.VALUE_INTERPOLATION_BICUBIC);
@@ -45,16 +45,16 @@ public class BackFill {
 				null
 				);
 		
-		// È­¸é Ã¤¿ì±â ³¡
+		// í™”ë©´ ì±„ìš°ê¸° ë
 
-		// ºí·¯¸µ ½ÃÀÛ
+		// ë¸”ëŸ¬ë§ ì‹œì‘
 
 		bgImg = Filtering(bgImg, 10, 10);
 
-		// ºí·¯¸µ ³¡
+		// ë¸”ëŸ¬ë§ ë
 		
 		
-		// ¹à±âÁ¶Á¤ ½ÃÀÛ
+		// ë°ê¸°ì¡°ì • ì‹œì‘
 		
 		Kernel kernel = new Kernel(1, 1, new float[] { 1.2f });
 
@@ -62,9 +62,9 @@ public class BackFill {
 
 		bgImg = convolveOp.filter(bgImg, null);
 		
-		//¹à±â Á¶Á¤ ³¡
+		//ë°ê¸° ì¡°ì • ë
 		
-		// È­¸é Áß¾Ó ÀÌ¹ÌÁö ¹èÄ¡
+		// í™”ë©´ ì¤‘ì•™ ì´ë¯¸ì§€ ë°°ì¹˜
 		graphics = (Graphics2D) bgImg.getGraphics();
 		graphics.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
                 RenderingHints.VALUE_INTERPOLATION_BICUBIC);
@@ -77,7 +77,7 @@ public class BackFill {
 				null
 				);
 		
-		// È­¸é Áß¾Ó ÀÌ¹ÌÁö ¹èÄ¡
+		// í™”ë©´ ì¤‘ì•™ ì´ë¯¸ì§€ ë°°ì¹˜
 
 		try {
 			ImageIO.write(bgImg, "png", new File("out.png"));
@@ -91,9 +91,9 @@ public class BackFill {
 	/*
 	 * getScreenSize : void
 	 * 
-	 * ¹è°æÈ­¸éÀÇ »çÀÌÁî¸¦ °¡Á®¿À´Â ÇÔ¼öÀÌ´Ù.
+	 * ë°°ê²½í™”ë©´ì˜ ì‚¬ì´ì¦ˆë¥¼ ê°€ì ¸ì˜¤ëŠ” í•¨ìˆ˜ì´ë‹¤.
 	 * 
-	 * ¹İÈ¯°ª¿¡ ~.getWidth(), ~.getHeight() ¸¦ ÀÔ·ÂÇÏ¸é ³ôÀÌ, Æø°ªÀ» °¡Áú ¼ö ÀÖ´Ù.
+	 * ë°˜í™˜ê°’ì— ~.getWidth(), ~.getHeight() ë¥¼ ì…ë ¥í•˜ë©´ ë†’ì´, í­ê°’ì„ ê°€ì§ˆ ìˆ˜ ìˆë‹¤.
 	 */
 	public static Dimension getScreenSize() {
 		return Toolkit.getDefaultToolkit().getScreenSize();
@@ -104,7 +104,7 @@ public class BackFill {
 	/*
 	 * Filtering : BufferedImage
 	 * 
-	 * °¡¿ì½Ã¾È ºí·¯´Â ¾Æ´Ï°í ±×³É ¹Ú½º ºí·¯
+	 * ê°€ìš°ì‹œì•ˆ ë¸”ëŸ¬ëŠ” ì•„ë‹ˆê³  ê·¸ëƒ¥ ë°•ìŠ¤ ë¸”ëŸ¬
 	 * 
 	 */
 	public static BufferedImage Filtering(BufferedImage input, int x_, int y_) {
@@ -121,13 +121,12 @@ public class BackFill {
 					for (int j = 0; j < y_; j++) {
 						try {
 							Color color = new Color(input.getRGB(x - (x_ / 2) + i, y - (y_ / 2) + j));
-							// System.out.print("aa");
 							r += color.getRed();
 							g += color.getGreen();
 							b += color.getBlue();
 							count++;
 						} catch (IndexOutOfBoundsException e) {
-							//°¡ÀåÀÚ¸®´Â ºí·¯ ¹üÀ§¿¡ µé°¡Áö ¾Ê´Â ºÎºĞµµ ÀÖÀ¸´Ï ¹üÀ§¸¦ ³Ñ´Â ¿¡·¯°¡ ¹ß»ıÇÔ
+							//ê°€ì¥ìë¦¬ëŠ” ë¸”ëŸ¬ ë²”ìœ„ì— ë“¤ê°€ì§€ ì•ŠëŠ” ë¶€ë¶„ë„ ìˆìœ¼ë‹ˆ ë²”ìœ„ë¥¼ ë„˜ëŠ” ì—ëŸ¬ê°€ ë°œìƒí•¨
 						}
 					}
 				}
